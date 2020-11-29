@@ -20,7 +20,7 @@ async def on_message(message):
         return
     
     # whether or not it is time for crab or not
-    tfc = random.randint(1,1000) % 100 == 0
+    tfc = random.randint(1,1000) % 3 == 0
     
     # if the message has
     if "crab" in (message.content.lower()) and tfc:
