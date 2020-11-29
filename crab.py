@@ -2,6 +2,8 @@
 import os
 import random
 
+from helper_functions import parse_cmd
+
 import discord
 from dotenv import load_dotenv
 
@@ -25,5 +27,9 @@ async def on_message(message):
     # if the message has
     if "crab" in (message.content.lower()) and tfc:
         await message.add_reaction("🦀")
-        
+
+    if (message.content[0:6] == "!crab "):
+        cmd = message.content[6:]
+        await message.channel.send(parse_cmd(cmd))
+
 client.run(TOKEN)
